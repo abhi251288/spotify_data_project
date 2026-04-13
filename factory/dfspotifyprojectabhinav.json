@@ -1,0 +1,9 @@
+{
+	"name": "dfspotifyprojectabhinav",
+	"location": "uksouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "55d301c0-7976-49e5-9854-baefcb596bcc",
+		"tenantId": "fbd64306-9b75-4dd3-a828-b7e8508c11bd"
+	}
+}
