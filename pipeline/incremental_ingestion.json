@@ -57,8 +57,14 @@
 					},
 					"dataset": {
 						"referenceName": "JsonDynamic",
-						"type": "DatasetReference"
-					}
+						"type": "DatasetReference",
+						"parameters": {
+							"container": "bronze",
+							"folder": "cdc",
+							"file": "cdc.jason"
+						}
+					},
+					"firstRowOnly": false
 				}
 			}
 		],
