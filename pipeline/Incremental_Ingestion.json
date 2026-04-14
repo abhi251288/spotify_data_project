@@ -109,7 +109,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container": "bronze",
-							"folder": "Dimuser_cdc",
+							"folder": "cdc",
 							"file": "cdc.json"
 						}
 					},
@@ -136,14 +136,9 @@
 			{
 				"name": "Max_cdc",
 				"type": "Script",
-				"dependsOn": [
-					{
-						"activity": "AzureSqlToLake",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -170,11 +165,11 @@
 				}
 			},
 			{
-				"name": "update_last_cdc",
+				"name": "updated_cdc",
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Max_cdc",
+						"activity": "AzureSqlToLake",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -195,7 +190,7 @@
 							{
 								"name": "cdc",
 								"value": {
-									"value": "@{activity('Max_cdc').output.resultSets[0].rows[0].cdc}",
+									"value": "fggrg",
 									"type": "Expression"
 								}
 							}
@@ -212,8 +207,7 @@
 					"sink": {
 						"type": "JsonSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings",
-							"copyBehavior": "MergeFiles"
+							"type": "AzureBlobFSWriteSettings"
 						},
 						"formatSettings": {
 							"type": "JsonWriteSettings"
@@ -227,7 +221,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container": "bronze",
-							"folder": "DimUser_cdc",
+							"folder": "cdc",
 							"file": "empty.json"
 						}
 					}
@@ -237,8 +231,8 @@
 						"referenceName": "JsonDynamic",
 						"type": "DatasetReference",
 						"parameters": {
-							"container": "bronze",
-							"folder": "DimUser_cdc",
+							"container": "boonze",
+							"folder": "cdc",
 							"file": "cdc.json"
 						}
 					}
