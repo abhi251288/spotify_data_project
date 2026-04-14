@@ -12,7 +12,7 @@
 			"table": {
 				"type": "string"
 			},
-			"file": {
+			"cdc_col": {
 				"type": "string"
 			}
 		},
