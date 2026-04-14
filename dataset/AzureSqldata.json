@@ -1,0 +1,23 @@
+{
+	"name": "AzureSqldata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataSql_Spotify_con",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"schema": {
+				"type": "string"
+			},
+			"table": {
+				"type": "string"
+			},
+			"file": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
