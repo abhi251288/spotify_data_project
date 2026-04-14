@@ -170,7 +170,7 @@
 				}
 			},
 			{
-				"name": "update_Last_Cdc",
+				"name": "update_last_cdc",
 				"type": "Copy",
 				"dependsOn": [
 					{
@@ -195,7 +195,7 @@
 							{
 								"name": "cdc",
 								"value": {
-									"value": "@activity('Max_cdc').output.resultSets[0].rows[0].cdc",
+									"value": "@activity('Max_cdc').output.resultsets[0].rows[0].cdc",
 									"type": "Expression"
 								}
 							}
@@ -226,10 +226,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container": "bronze",
-							"folder": {
-								"value": "@concat(pipeline().parameters.table,'_cdc')",
-								"type": "Expression"
-							},
+							"folder": "DimUser_cdc",
 							"file": "empty.json"
 						}
 					}
@@ -240,10 +237,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container": "bronze",
-							"folder": {
-								"value": "@concat(pipeline().parameters.table,'_cdc')",
-								"type": "Expression"
-							},
+							"folder": "DimUser_cdc",
 							"file": "cdc.json"
 						}
 					}
